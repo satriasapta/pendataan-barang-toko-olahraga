@@ -99,7 +99,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu:</h6>
                         <a class="collapse-item" href="?page=gudang">Data Barang</a>
-                        <a class="collapse-item" href="?page=jenisbarang">Jenis Barang</a>
+                        <a class="collapse-item" href="/jenisbarang">Jenis Barang</a>
                         <a class="collapse-item" href="?page=satuanbarang">Satuan Barang</a>
                         <a class="collapse-item" href="?page=supplier">Data Supplier</a>
 

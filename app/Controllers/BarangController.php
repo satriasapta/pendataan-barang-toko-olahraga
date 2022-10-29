@@ -10,4 +10,13 @@ class BarangController extends BaseController
     {
         return view('home');
     }
+
+    public function jenisbarang()
+    {
+        $builder = $this->db->table('jenis_barang');
+        $query   = $builder->get();
+
+        $data['jenisbarang'] = $query->getResult();
+        return view('jenisBarang',$data);
+    }
 }
