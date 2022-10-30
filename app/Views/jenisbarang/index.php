@@ -10,6 +10,16 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Jenis Barang</h6>
         </div>
+        <?php if(session()->getFlashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">x</button>
+                    <b>Success !</b>
+                    <?= session()->getFlashdata('success'); ?>
+                </div>
+            </div>
+        <?php endif ?>
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -32,15 +42,18 @@
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $value->jenis_barang; ?></td>
                                 <td>
-                                    <a href="" class="btn btn-success">Ubah</a>
-                                    <a onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" href="" class="btn btn-danger">Hapus</a>
+                                    <a href="<?= site_url('jenisbarang/edit/'.$value->id); ?>" class="btn btn-success">Ubah</a>
+                                    <form action="<?= site_url('jenisbarang/'.$value->id); ?>" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus data?')">
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button class="btn btn-danger">Hapus</button>
+                                </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
 
                     </tbody>
                 </table>
-                <a href="?page=jenisbarang&aksi=tambahjenis" class="btn btn-primary">Tambah Jenis Barang</a>
+                <a href="<?= site_url('jenisbarang/create'); ?>" class="btn btn-primary">Tambah Jenis Barang</a>
                 </tbody>
                 </table>
             </div>
