@@ -44,6 +44,9 @@ $routes->get('/jenisbarang/create', 'JenisBarang::create');
 $routes->delete('/jenisbarang/(:any)', 'JenisBarang::destroy/$1');
 
 
+$routes->get('/gudang', 'Gudang::index');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
