@@ -1,4 +1,4 @@
- <?php
+<?php
 
 namespace App\Database\Migrations;
 
@@ -9,15 +9,11 @@ class Gudang extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => [
+            'id_gudang' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
-            ],
-            'kode_barang' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
             ],
             'nama_barang' => [
                 'type'       => 'VARCHAR',
@@ -30,14 +26,15 @@ class Gudang extends Migration
             'jumlah' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
-            ],
+            ]
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addKey('id_gudang', true);
+        // $this->forge->addForeignKey('jenis_barang', 'jenis_barang','id');
         $this->forge->createTable('gudang');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('gudang');
     }
 }
