@@ -14,6 +14,15 @@ class Barang extends BaseController
         $this->kategoriModel = new KategoriModel();
     }
 
+    public function index()
+    {
+        $builder = $this->db->table('barang');
+        $query   = $builder->get();
+    
+        $data['barang'] = $query->getResult();
+        return view('barang/index',$data);
+    }
+
     public function create()
     {
         $data = [

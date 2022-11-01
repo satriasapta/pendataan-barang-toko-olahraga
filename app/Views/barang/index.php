@@ -26,12 +26,12 @@
 
 
                     <tbody>
-                    <?php foreach ($gudang as $key => $value) : ?>
+                    <?php foreach ($barang as $key => $value) : ?>
                             <tr>
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $value->nama_barang; ?></td>
-                                <td><?= $value->jenis_barang; ?></td>
-                                <td><?= $value->jumlah; ?></td>
+                                <td><?= $value->id_kategori; ?></td>
+                                <td><?= $value->jumlah_barang; ?></td>
                                 <td>
                                     <a href="#" class="btn btn-success">Ubah</a>
                                     <a onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" href="#" class="btn btn-danger">Hapus</a>
@@ -40,7 +40,7 @@
                             <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="#" class="btn btn-primary">Tambah Data Barang</a>
+                <a href="<?= site_url('barang/create'); ?>" class="btn btn-primary">Tambah Data Barang</a>
                 </tbody>
                 </table>
             </div>

@@ -44,7 +44,8 @@ $routes->get('/jenisbarang/create', 'Kategori::create');
 $routes->delete('/jenisbarang/(:any)', 'Kategori::destroy/$1');
 
 
-$routes->get('/gudang', 'Gudang::index');
+
+$routes->get('/barang', 'Barang::index');
 
 $routes->get('/barang/create', 'Barang::create');
 $routes->post('/barang/save', 'Barang::save');
