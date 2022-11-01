@@ -46,9 +46,11 @@ $routes->delete('/jenisbarang/(:any)', 'Kategori::destroy/$1');
 
 
 $routes->get('/barang', 'Barang::index');
-
 $routes->get('/barang/create', 'Barang::create');
+$routes->put('/barang/(:any)', 'Barang::update/$1');
+$routes->get('/barang/edit/(:any)', 'Barang::edit/$1');
 $routes->post('/barang/save', 'Barang::save');
+$routes->delete('/barang/(:any)', 'Barang::destroy/$1');
 
 
 /*
