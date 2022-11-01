@@ -36,14 +36,14 @@
 
                     <tbody>
 
-                        <?php foreach ($jenisbarang as $key => $value) : ?>
+                        <?php foreach ($kategori as $key => $value) : ?>
 
                             <tr>
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $value->jenis_barang; ?></td>
                                 <td>
-                                    <a href="<?= site_url('jenisbarang/edit/'.$value->id); ?>" class="btn btn-success">Ubah</a>
-                                    <form action="<?= site_url('jenisbarang/'.$value->id); ?>" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus data?')">
+                                    <a href="<?= site_url('jenisbarang/edit/'.$value->id_kategori); ?>" class="btn btn-success">Ubah</a>
+                                    <form action="<?= site_url('jenisbarang/'.$value->id_kategori); ?>" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus data?')">
                                     <input type="hidden" name="_method" value="delete">
                                     <button class="btn btn-danger">Hapus</button>
                                 </form>

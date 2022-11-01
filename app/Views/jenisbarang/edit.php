@@ -13,13 +13,13 @@
 
                 <div class="body">
 
-                    <form action="<?= site_url('jenisbarang/' . $jenis_barang->id); ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= site_url('jenisbarang/' . $kategori->id_kategori); ?>" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
 
                         <label for="">Jenis Barang</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="jenis_barang" value="<?= $jenis_barang->jenis_barang; ?>" class="form-control" required />
+                                <input type="text" name="jenis_barang" value="<?= $kategori->jenis_barang; ?>" class="form-control" required />
                             </div>
                         </div>
 

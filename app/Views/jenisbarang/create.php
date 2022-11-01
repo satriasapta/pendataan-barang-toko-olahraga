@@ -14,16 +14,12 @@
                 <div class="body">
 
                     <form action="<?= site_url('jenisbarang'); ?>" method="POST" enctype="multipart/form-data">
-
-
                         <label for="">Jenis Barang</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="jenis_barang" class="form-control" required/>
                             </div>
                         </div>
-
-
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
 
