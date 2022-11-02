@@ -16,11 +16,13 @@ class Barang extends BaseController
 
     public function index()
     {
-        $builder = $this->db->table('barang');
-        $query   = $builder->get();
-    
-        $data['barang'] = $query->getResult();
-        return view('barang/index',$data);
+        // $builder = $this->db->table('barang');
+        // $query   = $builder->get();
+
+        $data = [
+            'barang' => $this->barangModel->getBarang(),
+        ];
+        return view('barang/index', $data);
     }
 
     public function create()
@@ -38,7 +40,7 @@ class Barang extends BaseController
             if ($query->resultID->num_rows > 0) {
                 $data = [
                     'dataKategori' => $this->kategoriModel->findAll(),
-                    'barang' =>$query->getRow()
+                    'barang' => $query->getRow()
                 ];
                 return view('barang/edit', $data);
             } else {

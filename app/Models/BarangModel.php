@@ -13,4 +13,14 @@ class BarangModel extends Model
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $allowedFields    = ['nama_barang', 'jumlah_barang', 'id_kategori'];
+
+    public function getBarang()
+    {
+        $dataBarang = $this->db->table($this->table)
+            ->join('kategori', 'kategori.id_kategori = barang.id_kategori')
+            ->get()
+            ->getResultArray();
+
+        return $dataBarang;
+    }
 }
