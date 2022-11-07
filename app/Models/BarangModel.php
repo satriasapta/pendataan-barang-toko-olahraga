@@ -23,4 +23,14 @@ class BarangModel extends Model
 
         return $dataBarang;
     }
+
+    public function getByID($id)
+    {
+        $data = $this->db->table('barang')
+            ->where(['id_barang' => $id])
+            ->get()
+            ->getResultArray();
+
+        return $data;
+    }
 }

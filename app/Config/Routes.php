@@ -35,6 +35,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// Data Admin
+$routes->get('/data_admin', 'Admin::index');
+
+
+// Jenis Barang
 $routes->get('/', 'home::index');
 $routes->get('/jenisbarang', 'Kategori::index');
 $routes->post('/jenisbarang', 'Kategori::store');
@@ -43,14 +49,35 @@ $routes->put('/jenisbarang/(:any)', 'Kategori::update/$1');
 $routes->get('/jenisbarang/create', 'Kategori::create');
 $routes->delete('/jenisbarang/(:any)', 'Kategori::destroy/$1');
 
-
-
+// Barang
 $routes->get('/barang', 'Barang::index');
 $routes->get('/barang/create', 'Barang::create');
 $routes->put('/barang/(:any)', 'Barang::update/$1');
 $routes->get('/barang/edit/(:any)', 'Barang::edit/$1');
 $routes->post('/barang/save', 'Barang::save');
 $routes->delete('/barang/(:any)', 'Barang::destroy/$1');
+
+// Barang Masuk
+$routes->get('/barang_masuk', 'BarangMasuk::index');
+$routes->get('/barang_masuk/create', 'BarangMasuk::create');
+$routes->post('/barang_masuk/save', 'BarangMasuk::save');
+$routes->delete('/barang_masuk/delete/(:num)', 'BarangMasuk::delete/$1');
+
+// Barang Keluar
+$routes->get('/barang_keluar', 'BarangKeluar::index');
+$routes->get('/barang_keluar/create', 'BarangKeluar::create');
+$routes->post('/barang_keluar/save', 'BarangKeluar::save');
+$routes->delete('/barang_keluar/delete/(:num)', 'BarangKeluar::delete/$1');
+
+
+// Supplier
+$routes->get('/data_supplier', 'Supplier::index');
+$routes->get('/data_supplier/create', 'Supplier::create');
+$routes->post('/data_supplier/save', 'Supplier::save');
+$routes->get('/data_supplier/edit/(:num)', 'Supplier::edit/$1');
+$routes->post('/data_supplier/update/(:num)', 'Supplier::update/$1');
+$routes->delete('/data_supplier/delete/(:num)', 'Supplier::delete/$1');
+
 
 
 /*
