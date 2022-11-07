@@ -84,9 +84,10 @@
 
 
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/data_admin">
                     <i class="fas fa-fw fa-home"></i>
-                    <span>Data Pengguna</span></a>
+                    <span>Data Admin</span>
+                </a>
             </li>
 
 
@@ -100,8 +101,7 @@
                         <h6 class="collapse-header">Menu:</h6>
                         <a class="collapse-item" href="/barang">Data Barang</a>
                         <a class="collapse-item" href="/jenisbarang">Jenis Barang</a>
-                        <a class="collapse-item" href="?page=satuanbarang">Satuan Barang</a>
-                        <a class="collapse-item" href="?page=supplier">Data Supplier</a>
+                        <a class="collapse-item" href="/data_supplier">Data Supplier</a>
 
                     </div>
                 </div>
@@ -117,40 +117,11 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu:</h6>
-                        <a class="collapse-item" href="?page=barangmasuk">Barang Masuk</a>
-                        <a class="collapse-item" href="?page=barangkeluar">Barang Keluar</a>
-
-
+                        <a class="collapse-item" href="/barang_masuk">Barang Masuk</a>
+                        <a class="collapse-item" href="/barang_keluar">Barang Keluar</a>
                     </div>
                 </div>
             </li>
-
-
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Laporan
-            </div>
-
-
-
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="true" aria-controls="collapseLaporan">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Laporan</span>
-                </a>
-                <div id="collapseLaporan" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Menu Laporan:</h6>
-                        <a class="collapse-item" href="?page=laporan_supplier">Laporan Supplier</a>
-                        <a class="collapse-item" href="?page=laporan_gudang">Laporan Stok Gudang</a>
-                        <a class="collapse-item" href="?page=laporan_barangmasuk">Laporan Barang Masuk</a>
-                        <a class="collapse-item" href="?page=laporan_barangkeluar">Laporan Barang Keluar</a>
-                    </div>
-                </div>
-            </li>
-
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
