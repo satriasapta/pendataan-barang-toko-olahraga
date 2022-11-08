@@ -44,14 +44,10 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-
-
-
             <!--sidebar start-->
 
             <li class="d-flex align-items-center justify-content-center">
-                <a class="nav-link">
-                    <img src="#" class="img-circle" width="80" alt="User" /></a>
+                <p class="mt-5 mb-0 text-light" style="font-size: 20px; font-weight: bold;"><?= session()->get('nama_admin') ?></p>
             <li class="d-flex align-items-center justify-content-center">
             </li>
             </li>
@@ -61,20 +57,14 @@
                     <div class="d-flex align-items-center justify-content-center" class="email"><strong> </strong></div>
                 </a>
             </li>
-
-
-
-
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 Pilih Menu
@@ -159,29 +149,19 @@
                         <li class="nav-item dropdown no-arrow">
                             <div class="top-menu">
                                 <ul class="nav pull-right top-menu">
-
-
-                                    <li><a onclick="return confirm('Apakah anda yakin akan logout?')" class="btn btn-danger" class="logout" href="logout.php">Keluar</a></li>
+                                    <li><a onclick="return confirm('Apakah anda yakin akan logout?')" class="btn btn-danger" class="logout" href="/logout">Keluar</a></li>
                                 </ul>
                             </div>
-
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <section class="content">
-
                         <?= $this->renderSection('content'); ?>
-
                     </section>
-
-
                 </div>
                 <!-- End of Main Content -->
 

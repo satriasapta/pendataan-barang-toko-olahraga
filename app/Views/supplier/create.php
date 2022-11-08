@@ -15,13 +15,13 @@
                         <label for="">Nama Supplier</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="nama_supplier" id="" class="form-control" />
+                                <input type="text" name="nama_supplier" id="" class="form-control" required />
                             </div>
                         </div>
                         <label for="">Alamat</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="alamat_supplier" id="" class="form-control" />
+                                <input type="text" name="alamat_supplier" id="" class="form-control" required />
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>

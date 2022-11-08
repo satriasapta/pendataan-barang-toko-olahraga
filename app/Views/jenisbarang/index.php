@@ -10,7 +10,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Jenis Barang</h6>
         </div>
-        <?php if(session()->getFlashdata('success')): ?>
+        <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-success alert-dismissible show fade">
                 <div class="alert-body">
                     <button class="close" data-dismiss="alert">x</button>
@@ -24,7 +24,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
                             <th>Jenis Barang</th>
 
@@ -38,15 +38,15 @@
 
                         <?php foreach ($kategori as $key => $value) : ?>
 
-                            <tr>
+                            <tr class="text-center">
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $value->jenis_barang; ?></td>
                                 <td>
-                                    <a href="<?= site_url('jenisbarang/edit/'.$value->id_kategori); ?>" class="btn btn-success">Ubah</a>
-                                    <form action="<?= site_url('jenisbarang/'.$value->id_kategori); ?>" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus data?')">
-                                    <input type="hidden" name="_method" value="delete">
-                                    <button class="btn btn-danger">Hapus</button>
-                                </form>
+                                    <a href="<?= site_url('jenisbarang/edit/' . $value->id_kategori); ?>" class="btn btn-success">Ubah</a>
+                                    <form action="<?= site_url('jenisbarang/' . $value->id_kategori); ?>" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin hapus data?')">
+                                        <input type="hidden" name="_method" value="delete">
+                                        <button class="btn btn-danger">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

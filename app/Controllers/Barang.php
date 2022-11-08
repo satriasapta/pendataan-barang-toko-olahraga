@@ -70,7 +70,9 @@ class Barang extends BaseController
 
         $this->barangModel->insert($data);
 
-        return redirect()->to('/barang/create');
+        session()->setFlashdata('msg', 'Data berhasil ditambahkan');
+
+        return redirect()->to('/barang');
     }
 
     public function destroy($id)

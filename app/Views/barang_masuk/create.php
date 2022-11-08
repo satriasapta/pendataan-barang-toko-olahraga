@@ -15,13 +15,13 @@
                         <label for="">Tanggal Masuk</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="date" name="tanggal_masuk" class="form-control" id="tanggal_masuk" />
+                                <input type="date" name="tanggal_masuk" class="form-control" id="tanggal_masuk" required />
                             </div>
                         </div>
                         <label for="">Barang</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <select name="id_barang" class="form-control">
+                                <select name="id_barang" class="form-control" required>
                                     <?php foreach ($barang as $b) : ?>
                                         <option value="<?= $b['id_barang'] ?>"><?= $b['nama_barang'] ?></option>
                                     <?php endforeach; ?>
@@ -31,13 +31,13 @@
                         <label for="">Jumlah</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="number" name="jumlah_masuk" id="jumlah_masuk" class="form-control" />
+                                <input type="number" name="jumlah_masuk" id="jumlah_masuk" class="form-control" required />
                             </div>
                         </div>
                         <label for="">Supplier</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <select name="id_supplier" class="form-control">
+                                <select name="id_supplier" class="form-control" required>
                                     <?php foreach ($supplier as $sup) : ?>
                                         <option value="<?= $sup['id_supplier'] ?>"><?= $sup['nama_supplier'] ?></option>
                                     <?php endforeach; ?>

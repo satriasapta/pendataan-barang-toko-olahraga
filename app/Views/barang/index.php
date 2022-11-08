@@ -10,20 +10,16 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Stok Barang</h6>
         </div>
-        <?php if (session()->getFlashdata('success')) : ?>
-            <div class="alert alert-success alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">x</button>
-                    <b>Success !</b>
-                    <?= session()->getFlashdata('success'); ?>
-                </div>
+        <?php if (session()->getFlashdata('msg')) : ?>
+            <div class="alert alert-success m-3" role="alert">
+                <?= session()->getFlashdata('msg'); ?>
             </div>
-        <?php endif ?>
+        <?php endif; ?>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Jenis Barang</th>
@@ -35,7 +31,7 @@
                     </thead>
                     <tbody>
                         <?php foreach ($barang as $key => $value) : ?>
-                            <tr>
+                            <tr class="text-center">
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $value['nama_barang']; ?></td>
                                 <td><?= $value['jenis_barang']; ?></td>

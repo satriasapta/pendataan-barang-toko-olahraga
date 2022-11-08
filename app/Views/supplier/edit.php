@@ -15,19 +15,19 @@
                         <label for="">Kode Supplier</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="id_supplier" value="<?php echo $supplier[0]['id_supplier']; ?>" class="form-control" readonly />
+                                <input type="text" name="id_supplier" value="<?php echo $supplier[0]['id_supplier']; ?>" class="form-control" readonly required />
                             </div>
                         </div>
                         <label for="">Nama Supplier</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="nama_supplier" value="<?php echo $supplier[0]['nama_supplier']; ?>" class="form-control" />
+                                <input type="text" name="nama_supplier" value="<?php echo $supplier[0]['nama_supplier']; ?>" class="form-control" required />
                             </div>
                         </div>
                         <label for="">Alamat</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="alamat_supplier" value="<?php echo $supplier[0]['alamat_supplier']; ?>" class="form-control" />
+                                <input type="text" name="alamat_supplier" value="<?php echo $supplier[0]['alamat_supplier']; ?>" class="form-control" required />
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
