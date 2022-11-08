@@ -22,11 +22,10 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <a href="?page=pengguna">
+                            <a href="/data_admin">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    <h4>Data Users</h4>
+                                    <h4>Data Admin</h4>
                                 </div>
-
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-black-300"></i>
@@ -42,7 +41,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <a href="?page=supplier">
+                            <a href="/data_supplier">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                     <h4>Data Supplier</h4>
                                 </div>
@@ -70,9 +69,9 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <a href="?page=gudang">
+                            <a href="/barang">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    <h4>Data Gudang</h4>
+                                    <h4>Data Barang</h4>
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
@@ -98,7 +97,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <a href="?page=barangmasuk">
+                            <a href="/barang_masuk">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     <h4>Barang Masuk</h4>
                                 </div>
@@ -118,7 +117,7 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <a href="?page=barangkeluar">
+                            <a href="/barang_keluar">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     <h4>Barang Keluar</h4>
                                 </div>

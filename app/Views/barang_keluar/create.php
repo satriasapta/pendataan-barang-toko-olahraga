@@ -15,13 +15,13 @@
                         <label for="">Tanggal Keluar</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="date" name="tanggal_keluar" class="form-control" id="tanggal_keluar" />
+                                <input type="date" name="tanggal_keluar" class="form-control" id="tanggal_keluar" required />
                             </div>
                         </div>
                         <label for="">Barang</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <select name="id_barang" class="form-control">
+                                <select name="id_barang" class="form-control" required>
                                     <?php foreach ($barang as $b) : ?>
                                         <option value="<?= $b['id_barang'] ?>"><?= $b['nama_barang'] ?></option>
                                     <?php endforeach; ?>
@@ -31,13 +31,13 @@
                         <label for="">Jumlah</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="number" name="jumlah_keluar" id="jumlah_keluar" class="form-control" />
+                                <input type="number" name="jumlah_keluar" id="jumlah_keluar" class="form-control" required />
                             </div>
                         </div>
                         <label for="">Tujuan</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="tujuan" class="form-control" id="tujuan" />
+                                <input type="text" name="tujuan" class="form-control" id="tujuan" required />
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>

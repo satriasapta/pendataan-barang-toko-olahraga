@@ -1,45 +1,36 @@
 <?= $this->extend('templates'); ?>
+
 <?= $this->section('content'); ?>
 <div class="container-fluid">
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tambah Barang</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tambah User</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <div class="body">
-                    <form method="POST" action="/barang/save" enctype="multipart/form-data">
-                        <label for="">Nama Barang</label>
+                    <form method="POST" enctype="multipart/form-data" action="/data_admin/save">
+                        <label for="">Nama</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="nama_barang" class="form-control" required />
+                                <input type="text" name="nama_admin" class="form-control" required />
                             </div>
                         </div>
-
-                        <label for="">Jenis Barang</label>
+                        <label for="">Username</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <select name="id_kategori" class="form-control" required>
-                                    <?php foreach ($dataKategori as $kategori) : ?>
-                                        <option value="<?= $kategori['id_kategori']; ?>"><?= $kategori['jenis_barang']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-
-
+                                <input type="text" name="username" class="form-control" required />
                             </div>
                         </div>
-
-
-                        <label for="">Jumlah</label>
+                        <label for="">Password</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="jumlah_barang" class="form-control" id="jumlah" readonly value=0 required />
+                                <input type="password" name="password" class="form-control" required />
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
-
                     </form>
                 </div>
             </div>

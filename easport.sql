@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 08:10 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Generation Time: Nov 08, 2022 at 05:28 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.0.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,15 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `username`, `password`) VALUES
+(1, 'Admin', 'admin', '$2y$10$hmhVe.qtDOSGJ5buHWzQ9O0/k4g/5RvVqIITwPF/y4M6kR5fdbOEy'),
+(2, 'Satria Sapta', 'sapta', '$2y$10$5o.3935FC6FKlZVLK1z73.aLMy7PIXGoM35Lj0sIOC7xtqksL5RtG'),
+(3, 'Thalia', 'thalia', '$2y$10$u9ukbFxeBEKpq.yaNBFjz.8ySFqJXZmIwOolieCCRhArPRP9d92jG');
+
 -- --------------------------------------------------------
 
 --
@@ -52,8 +61,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `jumlah_barang`, `id_kategori`) VALUES
-(1, 'Specs Futsal', 0, 1),
-(3, 'Adidas Yeezy', 0, 6);
+(1, 'Specs Futsall', 20, 1),
+(2, 'Nike', 20, 1);
 
 -- --------------------------------------------------------
 
@@ -64,8 +73,9 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `jumlah_barang`, `id_kategori`
 CREATE TABLE `barang_keluar` (
   `id_transaksi` int(10) UNSIGNED NOT NULL,
   `id_barang` int(10) UNSIGNED NOT NULL,
-  `nama_barang` varchar(255) NOT NULL,
-  `jumlah_barang` bigint(20) UNSIGNED NOT NULL
+  `jumlah_keluar` bigint(20) UNSIGNED NOT NULL,
+  `tanggal_keluar` date DEFAULT NULL,
+  `tujuan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -77,10 +87,18 @@ CREATE TABLE `barang_keluar` (
 CREATE TABLE `barang_masuk` (
   `id_transaksi` int(10) UNSIGNED NOT NULL,
   `id_barang` int(10) UNSIGNED NOT NULL,
-  `nama_barang` varchar(255) NOT NULL,
-  `jumlah_barang` bigint(20) UNSIGNED NOT NULL,
-  `id_supplier` int(10) UNSIGNED NOT NULL
+  `jumlah_masuk` bigint(20) UNSIGNED NOT NULL,
+  `id_supplier` int(10) UNSIGNED DEFAULT NULL,
+  `tanggal_masuk` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barang_masuk`
+--
+
+INSERT INTO `barang_masuk` (`id_transaksi`, `id_barang`, `jumlah_masuk`, `id_supplier`, `tanggal_masuk`) VALUES
+(1, 1, 20, 1, '2022-11-08'),
+(2, 2, 20, 1, '2022-11-08');
 
 -- --------------------------------------------------------
 
@@ -98,13 +116,7 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `jenis_barang`) VALUES
-(1, 'Bola'),
-(2, 'Kaos Kaki'),
-(3, 'Jersey'),
-(4, 'Raket'),
-(5, 'Tas'),
-(6, 'Sepatu'),
-(9, 'Stocking');
+(1, 'Sepatu');
 
 -- --------------------------------------------------------
 
@@ -117,6 +129,14 @@ CREATE TABLE `supplier` (
   `nama_supplier` varchar(255) NOT NULL,
   `alamat_supplier` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`) VALUES
+(1, 'PT Bhayangkara', 'Jakarta Selatan'),
+(2, 'PT Sahabat', 'Kabupaten Tangerang');
 
 --
 -- Indexes for dumped tables
@@ -170,13 +190,13 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_barang` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `barang_keluar`
@@ -188,19 +208,19 @@ ALTER TABLE `barang_keluar`
 -- AUTO_INCREMENT for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id_transaksi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kategori` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_supplier` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
