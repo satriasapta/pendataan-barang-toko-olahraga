@@ -1,10 +1,8 @@
 <?= $this->extend('templates'); ?>
-<?= $this->section('content'); ?>
 
+<?= $this->section('content'); ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -21,18 +19,18 @@
                     <thead>
                         <tr class="text-center">
                             <th>No</th>
+                            <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Jenis Barang</th>
-
                             <th>Jumlah Barang</th>
                             <th>Pengaturan</th>
-
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($barang as $key => $value) : ?>
                             <tr class="text-center">
                                 <td><?= $key + 1; ?></td>
+                                <td><?= $value['kode_barang'] ?></td>
                                 <td><?= $value['nama_barang']; ?></td>
                                 <td><?= $value['jenis_barang']; ?></td>
                                 <td><?= $value['jumlah_barang']; ?></td>
@@ -53,6 +51,5 @@
             </div>
         </div>
     </div>
-
 </div>
 <?= $this->endSection(); ?>

@@ -23,10 +23,12 @@ class BarangKeluar extends BaseController
     public function create()
     {
         $barang = new BarangModel();
+        $barangKeluar = new BarangKeluarModel();
 
         $data = [
             'title' => 'Tambah Barang Masuk',
             'barang' => $barang->findAll(),
+            'last_transaksi' => $barangKeluar->getLast(),
         ];
 
         return view('barang_keluar/create', $data);
@@ -46,6 +48,7 @@ class BarangKeluar extends BaseController
         }
 
         $data = [
+            'kode_transaksi' => $this->request->getVar('kode_transaksi'),
             'tanggal_keluar' => $this->request->getVar('tanggal_keluar'),
             'id_barang' => $this->request->getVar('id_barang'),
             'jumlah_keluar' => $this->request->getVar('jumlah_keluar'),
@@ -72,5 +75,18 @@ class BarangKeluar extends BaseController
         session()->setFlashdata('pesan', 'Data berhasil dihapus');
 
         return redirect()->to('/barang_keluar');
+    }
+
+    public function export_barang_keluar()
+    {
+
+        $barangKeluar = new BarangKeluarModel();
+
+        $data = [
+            'title' => 'Export Barang Keluar',
+            'barangKeluar' => $barangKeluar->getBarangKeluar()
+        ];
+
+        return view('barang_keluar/export_barang_keluar', $data);
     }
 }

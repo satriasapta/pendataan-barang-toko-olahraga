@@ -20,7 +20,7 @@
                     <thead>
                         <tr class="text-center">
                             <th>No</th>
-                            <th>Id Supplier</th>
+                            <th>Kode Supplier</th>
                             <th>Nama Supplier</th>
                             <th>Alamat Supplier</th>
                             <th>Aksi</th>
@@ -30,7 +30,7 @@
                         <?php foreach ($supplier as $sup) : ?>
                             <tr class="text-center">
                                 <td><?= $index; ?></td>
-                                <td><?= $sup['id_supplier']; ?></td>
+                                <td><?= $sup['kode_supplier']; ?></td>
                                 <td><?= $sup['nama_supplier']; ?></td>
                                 <td><?= $sup['alamat_supplier']; ?></td>
                                 <td>

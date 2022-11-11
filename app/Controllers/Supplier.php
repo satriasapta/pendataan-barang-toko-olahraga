@@ -13,7 +13,7 @@ class Supplier extends BaseController
 
         $data = [
             'title' => 'Data Supplier',
-            'supplier' => $supplier->findAll()
+            'supplier' => $supplier->findAll(),
         ];
 
         return view('supplier/index', $data);
@@ -21,8 +21,11 @@ class Supplier extends BaseController
 
     public function create()
     {
+        $supplier = new SupplierModel();
+
         $data = [
-            'title' => 'Tambah Data Supplier'
+            'title' => 'Tambah Data Supplier',
+            'last_supplier' => $supplier->getLast(),
         ];
 
         return view('supplier/create', $data);
@@ -33,6 +36,7 @@ class Supplier extends BaseController
         $supplier = new SupplierModel();
 
         $data = [
+            'kode_supplier' => $this->request->getVar('kode_supplier'),
             'nama_supplier' => $this->request->getVar('nama_supplier'),
             'alamat_supplier' => $this->request->getVar('alamat_supplier')
         ];

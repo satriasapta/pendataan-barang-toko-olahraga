@@ -12,7 +12,7 @@ class BarangModel extends Model
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
-    protected $allowedFields    = ['nama_barang', 'jumlah_barang', 'id_kategori'];
+    protected $allowedFields    = ['kode_barang', 'nama_barang', 'jumlah_barang', 'id_kategori'];
 
     public function getBarang()
     {
@@ -30,6 +30,15 @@ class BarangModel extends Model
             ->where(['id_barang' => $id])
             ->get()
             ->getResultArray();
+
+        return $data;
+    }
+
+    public function getLast()
+    {
+        $data = $this->db->table($this->table)
+            ->get()
+            ->getLastRow();
 
         return $data;
     }

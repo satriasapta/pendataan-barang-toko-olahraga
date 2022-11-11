@@ -12,6 +12,12 @@
             <div class="table-responsive">
                 <div class="body">
                     <form method="POST" action="/barang_masuk/save" enctype="multipart/form-data">
+                        <label for="">Kode Transaksi</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" name="kode_transaksi" class="form-control" id="kode_transaksi" value="<?= ($last_transaksi === null) ? 'TRXM-1' : 'TRXM-' . ($last_transaksi->id_transaksi + 1); ?>" required readonly />
+                            </div>
+                        </div>
                         <label for="">Tanggal Masuk</label>
                         <div class="form-group">
                             <div class="form-line">

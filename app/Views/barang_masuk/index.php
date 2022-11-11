@@ -3,6 +3,7 @@
 
 <?= $this->section('content'); ?>
 <div class="container-fluid">
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <?php if (session()->getFlashdata('pesan')) : ?>
@@ -10,6 +11,12 @@
                 <?= session()->getFlashdata('pesan'); ?>
             </div>
         <?php endif; ?>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col text-right m-3">
+                <a href="/export_barang_masuk" class="btn btn-primary">Export Laporan Transaksi</a>
+            </div>
+        </div>
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Barang Masuk</h6>
         </div>
@@ -19,7 +26,7 @@
                     <thead>
                         <tr class="text-center">
                             <th>No</th>
-                            <th>Id Transaksi</th>
+                            <th>Kode Transaksi</th>
                             <th>Tanggal Masuk</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
@@ -32,9 +39,9 @@
                         <?php foreach ($barangMasuk as $barang) : ?>
                             <tr class="text-center">
                                 <td><?= $index ?></td>
-                                <td><?= $barang['id_transaksi'] ?></td>
+                                <td><?= $barang['kode_transaksi'] ?></td>
                                 <td><?= $barang['tanggal_masuk'] ?></td>
-                                <td><?= $barang['id_barang'] ?></td>
+                                <td><?= $barang['kode_barang'] ?></td>
                                 <td><?= $barang['nama_barang'] ?></td>
                                 <td><?= $barang['nama_supplier'] ?></td>
                                 <td><?= $barang['jumlah_masuk'] ?></td>
@@ -50,11 +57,8 @@
                     </tbody>
                 </table>
                 <a href="/barang_masuk/create" class="btn btn-primary">Tambah</a>
-                </tbody>
-                </table>
             </div>
         </div>
     </div>
-
 </div>
 <?= $this->endSection(); ?>
