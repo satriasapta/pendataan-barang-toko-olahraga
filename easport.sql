@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2022 at 05:28 AM
+-- Generation Time: Nov 11, 2022 at 12:29 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -39,9 +39,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `username`, `password`) VALUES
-(1, 'Admin', 'admin', '$2y$10$hmhVe.qtDOSGJ5buHWzQ9O0/k4g/5RvVqIITwPF/y4M6kR5fdbOEy'),
-(2, 'Satria Sapta', 'sapta', '$2y$10$5o.3935FC6FKlZVLK1z73.aLMy7PIXGoM35Lj0sIOC7xtqksL5RtG'),
-(3, 'Thalia', 'thalia', '$2y$10$u9ukbFxeBEKpq.yaNBFjz.8ySFqJXZmIwOolieCCRhArPRP9d92jG');
+(1, 'Admin', 'admin', '$2y$10$huKCqNTd5urmWlCTKHku9.cE4YpmpDqJspLtOvq7PpE4p.XAddZo.'),
+(2, 'Satria Sapta', 'sapta', '$2y$10$Ms83Lwm4cFQCmLRsqCaQlePqQdnkCYJvSW6WFzke22n/lvJLGLhp.'),
+(3, 'Thalia', 'thalia', '$2y$10$1GIn2RprPUOx90TMJf6VZO3svD4jjbBg/OE2aULOpS6Rwq8WKNcke');
 
 -- --------------------------------------------------------
 
@@ -51,6 +51,7 @@ INSERT INTO `admin` (`id_admin`, `nama_admin`, `username`, `password`) VALUES
 
 CREATE TABLE `barang` (
   `id_barang` int(10) UNSIGNED NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
   `nama_barang` varchar(255) NOT NULL,
   `jumlah_barang` bigint(20) UNSIGNED NOT NULL,
   `id_kategori` int(10) UNSIGNED NOT NULL
@@ -60,9 +61,9 @@ CREATE TABLE `barang` (
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `nama_barang`, `jumlah_barang`, `id_kategori`) VALUES
-(1, 'Specs Futsall', 20, 1),
-(2, 'Nike', 20, 1);
+INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `jumlah_barang`, `id_kategori`) VALUES
+(1, 'BAR-1', 'Nikes', 3, 1),
+(2, 'BAR-2', 'Specs Futsal', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -72,11 +73,19 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `jumlah_barang`, `id_kategori`
 
 CREATE TABLE `barang_keluar` (
   `id_transaksi` int(10) UNSIGNED NOT NULL,
+  `kode_transaksi` varchar(255) NOT NULL,
   `id_barang` int(10) UNSIGNED NOT NULL,
   `jumlah_keluar` bigint(20) UNSIGNED NOT NULL,
   `tanggal_keluar` date DEFAULT NULL,
   `tujuan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `barang_keluar`
+--
+
+INSERT INTO `barang_keluar` (`id_transaksi`, `kode_transaksi`, `id_barang`, `jumlah_keluar`, `tanggal_keluar`, `tujuan`) VALUES
+(1, 'TRXK-1', 1, 4, '2022-11-10', 'Jakarta Barat');
 
 -- --------------------------------------------------------
 
@@ -86,6 +95,7 @@ CREATE TABLE `barang_keluar` (
 
 CREATE TABLE `barang_masuk` (
   `id_transaksi` int(10) UNSIGNED NOT NULL,
+  `kode_transaksi` varchar(255) NOT NULL,
   `id_barang` int(10) UNSIGNED NOT NULL,
   `jumlah_masuk` bigint(20) UNSIGNED NOT NULL,
   `id_supplier` int(10) UNSIGNED DEFAULT NULL,
@@ -96,9 +106,10 @@ CREATE TABLE `barang_masuk` (
 -- Dumping data for table `barang_masuk`
 --
 
-INSERT INTO `barang_masuk` (`id_transaksi`, `id_barang`, `jumlah_masuk`, `id_supplier`, `tanggal_masuk`) VALUES
-(1, 1, 20, 1, '2022-11-08'),
-(2, 2, 20, 1, '2022-11-08');
+INSERT INTO `barang_masuk` (`id_transaksi`, `kode_transaksi`, `id_barang`, `jumlah_masuk`, `id_supplier`, `tanggal_masuk`) VALUES
+(1, 'TRXM-1', 1, 12, 1, '2022-11-10'),
+(2, 'TRXM-2', 2, 10, 1, '2022-11-10'),
+(3, 'TRXM-3', 1, 12, 1, '2022-11-10');
 
 -- --------------------------------------------------------
 
@@ -108,6 +119,7 @@ INSERT INTO `barang_masuk` (`id_transaksi`, `id_barang`, `jumlah_masuk`, `id_sup
 
 CREATE TABLE `kategori` (
   `id_kategori` int(10) UNSIGNED NOT NULL,
+  `kode_jenis` varchar(255) NOT NULL,
   `jenis_barang` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -115,8 +127,8 @@ CREATE TABLE `kategori` (
 -- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `jenis_barang`) VALUES
-(1, 'Sepatu');
+INSERT INTO `kategori` (`id_kategori`, `kode_jenis`, `jenis_barang`) VALUES
+(1, 'JEN-1', 'Sepatu');
 
 -- --------------------------------------------------------
 
@@ -126,6 +138,7 @@ INSERT INTO `kategori` (`id_kategori`, `jenis_barang`) VALUES
 
 CREATE TABLE `supplier` (
   `id_supplier` int(10) UNSIGNED NOT NULL,
+  `kode_supplier` varchar(255) NOT NULL,
   `nama_supplier` varchar(255) NOT NULL,
   `alamat_supplier` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -134,9 +147,8 @@ CREATE TABLE `supplier` (
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`) VALUES
-(1, 'PT Bhayangkara', 'Jakarta Selatan'),
-(2, 'PT Sahabat', 'Kabupaten Tangerang');
+INSERT INTO `supplier` (`id_supplier`, `kode_supplier`, `nama_supplier`, `alamat_supplier`) VALUES
+(1, 'SUP-1', 'PT Bhayangkara', 'Jakarta');
 
 --
 -- Indexes for dumped tables
@@ -202,13 +214,13 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT for table `barang_keluar`
 --
 ALTER TABLE `barang_keluar`
-  MODIFY `id_transaksi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaksi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `barang_masuk`
 --
 ALTER TABLE `barang_masuk`
-  MODIFY `id_transaksi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -220,7 +232,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_supplier` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

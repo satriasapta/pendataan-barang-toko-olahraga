@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\KategoriModel;
 
 class Kategori extends BaseController
 {
@@ -11,13 +12,25 @@ class Kategori extends BaseController
         $builder = $this->db->table('kategori');
         $query   = $builder->get();
 
-        $data['kategori'] = $query->getResult();
+        $kategori = new KategoriModel();
+
+        $data = [
+            'kategori' => $query->getResult(),
+            'last_kategori' => $kategori->getLast(),
+        ];
         return view('jenisbarang/index', $data);
     }
 
     public function create()
     {
-        return view('jenisbarang/create');
+        $kategori = new KategoriModel();
+
+        $data = [
+            'title' => 'Tambah Jenis Barang',
+            'last_kategori' => $kategori->getLast(),
+        ];
+
+        return view('jenisbarang/create', $data);
     }
 
     public function store()

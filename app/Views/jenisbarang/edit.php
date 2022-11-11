@@ -9,24 +9,22 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-
-
                 <div class="body">
-
                     <form action="<?= site_url('jenisbarang/' . $kategori->id_kategori); ?>" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
-
+                        <label for="">Kode Jenis Barang</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" name="kode_jenis" class="form-control" value="JEN-1" required readonly />
+                            </div>
+                        </div>
                         <label for="">Jenis Barang</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="jenis_barang" value="<?= $kategori->jenis_barang; ?>" class="form-control" required />
                             </div>
                         </div>
-
-
-
                         <button type="submit" class="btn btn-primary">Simpan</button>
-
                     </form>
                 </div>
             </div>

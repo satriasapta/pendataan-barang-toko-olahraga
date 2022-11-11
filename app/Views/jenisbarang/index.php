@@ -26,20 +26,17 @@
                     <thead>
                         <tr class="text-center">
                             <th>No</th>
+                            <th>Kode Jenis</th>
                             <th>Jenis Barang</th>
-
                             <th>Pengaturan</th>
 
                         </tr>
                     </thead>
-
-
                     <tbody>
-
                         <?php foreach ($kategori as $key => $value) : ?>
-
                             <tr class="text-center">
                                 <td><?= $key + 1; ?></td>
+                                <td><?= $value->kode_jenis; ?></td>
                                 <td><?= $value->jenis_barang; ?></td>
                                 <td>
                                     <a href="<?= site_url('jenisbarang/edit/' . $value->id_kategori); ?>" class="btn btn-success">Ubah</a>
@@ -50,7 +47,6 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-
                     </tbody>
                 </table>
                 <a href="<?= site_url('jenisbarang/create'); ?>" class="btn btn-primary">Tambah Jenis Barang</a>

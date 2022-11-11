@@ -16,18 +16,19 @@ class Barang extends BaseController
 
     public function index()
     {
-        // $builder = $this->db->table('barang');
-        // $query   = $builder->get();
-
         $data = [
             'barang' => $this->barangModel->getBarang(),
         ];
+
         return view('barang/index', $data);
     }
 
     public function create()
     {
+        $barang = new BarangModel();
+
         $data = [
+            'last_barang' => $barang->getLast(),
             'dataKategori' => $this->kategoriModel->findAll()
         ];
         return view('barang/create', $data);
@@ -63,6 +64,7 @@ class Barang extends BaseController
     public function save()
     {
         $data = [
+            'kode_barang' => $this->request->getVar('kode_barang'),
             'nama_barang' => $this->request->getVar('nama_barang'),
             'jumlah_barang' => $this->request->getVar('jumlah_barang'),
             'id_kategori' => $this->request->getVar('id_kategori')

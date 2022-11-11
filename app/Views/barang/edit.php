@@ -12,13 +12,18 @@
                 <div class="body">
                     <form method="POST" action="<?= site_url('barang/' . $barang->id_barang); ?>" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
+                        <label for="">Kode Barang</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" name="kode_barang" class="form-control" value="<?= $barang->kode_barang; ?>" required readonly />
+                            </div>
+                        </div>
                         <label for="">Nama Barang</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="nama_barang" class="form-control" value="<?= $barang->nama_barang; ?>" required />
                             </div>
                         </div>
-
                         <label for="">Jenis Barang</label>
                         <div class="form-group">
                             <div class="form-line">
@@ -36,7 +41,7 @@
                         <label for="">Jumlah</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="jumlah_barang" class="form-control" id="jumlah" readonly value=0 required />
+                                <input type="text" name="jumlah_barang" class="form-control" id="jumlah" readonly value="<?= $barang->jumlah_barang ?>" required />
 
                             </div>
                         </div>

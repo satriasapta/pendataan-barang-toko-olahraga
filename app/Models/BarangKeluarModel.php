@@ -14,7 +14,7 @@ class BarangKeluarModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_barang', 'jumlah_keluar', 'tanggal_keluar', 'tujuan'];
+    protected $allowedFields    = ['kode_transaksi', 'id_barang', 'jumlah_keluar', 'tanggal_keluar', 'tujuan'];
 
     // Dates
     protected $useTimestamps = false;
@@ -29,6 +29,16 @@ class BarangKeluarModel extends Model
             ->join('barang', 'barang.id_barang = barang_keluar.id_barang')
             ->get()
             ->getResultArray();
+
+        // dd($data);
+        return $data;
+    }
+
+    public function getLast()
+    {
+        $data = $this->db->table($this->table)
+            ->get()
+            ->getLastRow();
 
         // dd($data);
         return $data;

@@ -12,10 +12,16 @@
             <div class="table-responsive">
                 <div class="body">
                     <form method="POST" enctype="multipart/form-data" action="/data_supplier/update/<?= $supplier[0]['id_supplier'] ?>">
-                        <label for="">Kode Supplier</label>
+                        <label for="">ID Supplier</label>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="id_supplier" value="<?php echo $supplier[0]['id_supplier']; ?>" class="form-control" readonly required />
+                            </div>
+                        </div>
+                        <label for="">Kode Supplier</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" name="kode_supplier" value="<?php echo $supplier[0]['kode_supplier']; ?>" class="form-control" readonly required />
                             </div>
                         </div>
                         <label for="">Nama Supplier</label>

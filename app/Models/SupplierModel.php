@@ -14,7 +14,7 @@ class SupplierModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_supplier', 'alamat_supplier'];
+    protected $allowedFields    = ['kode_supplier', 'nama_supplier', 'alamat_supplier'];
 
     // Dates
     protected $useTimestamps = false;
@@ -27,6 +27,16 @@ class SupplierModel extends Model
     {
         $data = $this->db->table($this->table)->where(['id_supplier' => $id])->get()->getResultArray();
 
+        return $data;
+    }
+
+    public function getLast()
+    {
+        $data = $this->db->table($this->table)
+            ->get()
+            ->getLastRow();
+
+        // dd($data->kode_supplier);
         return $data;
     }
 }

@@ -37,18 +37,14 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'home::index', ['filter' => 'auth']);
 
-// Login
 $routes->get('/login', 'Login::index');
 $routes->post('/login/auth', 'Login::auth');
 $routes->get('/logout', 'Login::logout');
 
-// Data Admin
 $routes->get('/data_admin', 'Admin::index', ['filter' => 'auth']);
 $routes->get('/data_admin/create', 'Admin::create', ['filter' => 'auth']);
 $routes->post('/data_admin/save', 'Admin::save', ['filter' => 'auth']);
 
-
-// Jenis Barang
 $routes->get('/jenisbarang', 'Kategori::index', ['filter' => 'auth']);
 $routes->post('/jenisbarang', 'Kategori::store', ['filter' => 'auth']);
 $routes->get('/jenisbarang/edit/(:any)', 'Kategori::edit/$1', ['filter' => 'auth']);
@@ -56,7 +52,6 @@ $routes->put('/jenisbarang/(:any)', 'Kategori::update/$1', ['filter' => 'auth'])
 $routes->get('/jenisbarang/create', 'Kategori::create', ['filter' => 'auth']);
 $routes->delete('/jenisbarang/(:any)', 'Kategori::destroy/$1', ['filter' => 'auth']);
 
-// Barang
 $routes->get('/barang', 'Barang::index', ['filter' => 'auth']);
 $routes->get('/barang/create', 'Barang::create', ['filter' => 'auth']);
 $routes->put('/barang/(:any)', 'Barang::update/$1', ['filter' => 'auth']);
@@ -64,20 +59,18 @@ $routes->get('/barang/edit/(:any)', 'Barang::edit/$1', ['filter' => 'auth']);
 $routes->post('/barang/save', 'Barang::save', ['filter' => 'auth']);
 $routes->delete('/barang/(:any)', 'Barang::destroy/$1', ['filter' => 'auth']);
 
-// Barang Masuk
 $routes->get('/barang_masuk', 'BarangMasuk::index', ['filter' => 'auth']);
 $routes->get('/barang_masuk/create', 'BarangMasuk::create', ['filter' => 'auth']);
 $routes->post('/barang_masuk/save', 'BarangMasuk::save', ['filter' => 'auth']);
 $routes->delete('/barang_masuk/delete/(:num)', 'BarangMasuk::delete/$1', ['filter' => 'auth']);
+$routes->get('/export_barang_masuk', 'BarangMasuk::export_barang_masuk', ['filter' => 'auth']);
 
-// Barang Keluar
 $routes->get('/barang_keluar', 'BarangKeluar::index', ['filter' => 'auth']);
 $routes->get('/barang_keluar/create', 'BarangKeluar::create', ['filter' => 'auth']);
 $routes->post('/barang_keluar/save', 'BarangKeluar::save', ['filter' => 'auth']);
 $routes->delete('/barang_keluar/delete/(:num)', 'BarangKeluar::delete/$1', ['filter' => 'auth']);
+$routes->get('/export_barang_keluar', 'BarangKeluar::export_barang_keluar', ['filter' => 'auth']);
 
-
-// Supplier
 $routes->get('/data_supplier', 'Supplier::index', ['filter' => 'auth']);
 $routes->get('/data_supplier/create', 'Supplier::create', ['filter' => 'auth']);
 $routes->post('/data_supplier/save', 'Supplier::save', ['filter' => 'auth']);
